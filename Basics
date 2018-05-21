@@ -1,0 +1,62 @@
+to enable docker to start at startup:
+sudo systemctl enable docker
+
+to start docker:
+sudo systemctl start docker
+
+to check the version of docker:
+sudo docker version
+
+to install docker:
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install -y docker.io
+
+to search for "ubuntu" images:
+sudo docker search ubuntu
+
+to pull "ubuntu" image:
+sudo docker pull ubuntu
+
+to inspect the available on pc images:
+sudo docker images
+
+to inspect the running containers:
+sudo docker ps
+
+to inspect containers ready to run, but not running:
+sudo docker ps -a
+
+to create an "ubuntu" container:
+sudo docker create ubuntu
+
+to run a container and enter its bash immediately:
+sudo docker run -i -t ubuntu /bin/bash
+
+to run a container in the background:
+sudo docker run -i -t -d ubuntu /bin/sh
+
+to give a name to such a container:
+sudo docker run -i -t -d --name nick ubuntu /bin/sh
+
+to enter a certain container:
+sudo docker exec -i -t nick /bin/bash
+
+to stop a container:
+sudo docker stop nick
+
+to start a container:
+sudo docker start nick
+
+to remove a container:
+sudo docker rm nick
+
+to remove an image:
+sudo docker rmi ubuntu
+
+to create a network with the name "mynet":
+sudo docker network create --subnet=172.18.0.0/16 mynet
+
+to assign a static ip to a container:
+sudo docker run --name attacker --net mynet --ip 172.18.0.4 -itd ubuntu bash
+
